@@ -3,13 +3,14 @@ var compactMovies = movies.map(function (movie, i) {
     id: i + 1,
     title: movie.Title.toString(),
     year: movie.movie_year,
-    categories: movie.Categories.split('|'),
+    categories: movie.Categories.split('|').join(', '),
     summary: movie.summary,
+    imageUrl: `http://i3.ytimg.com/vi/${movie.ytid}/maxresdefault.jpg`,
     imdbId: movie.imdb_id,
     imdbRating: movie.imdb_rating,
     runtime: movie.runtime,
     language: movie.language,
-    youtubeId: movie.ytid
+    youtubeId: `https://www.youtube.com/watch?v=${movie.ytid}`
   };
 });
 
@@ -20,16 +21,17 @@ var elMovieTemplate = $_('#movie-template').content;
 
 var createMovieElement = function (compactMovies) {
   var elNewMovie = elMovieTemplate.cloneNode(true);
-
   $_('.movie-title', elNewMovie).textContent = compactMovies.title;
+  $_('.movie-image', elNewMovie).src = compactMovies.imageUrl;
+  $_('.movie-image', elNewMovie).alt = compactMovies.title;
   $_('.movie-year', elNewMovie).textContent = compactMovies.year;
-  $_('.movie-categories', elNewMovie).textContent = compactMovies.categories.join(', ');
+  $_('.movie-categories', elNewMovie).textContent = compactMovies.categories;
   $_('.movie-summary', elNewMovie).textContent = compactMovies.summary;
   $_('.movie-imdb-id', elNewMovie).textContent = compactMovies.imdbId;
   $_('.movie-imdb-rating', elNewMovie).textContent = compactMovies.imdbRating;
   $_('.movie-runtime', elNewMovie).textContent = compactMovies.runtime;
   $_('.movie-language', elNewMovie).textContent = compactMovies.language;
-  $_('.movie-youtube', elNewMovie).href = `https://www.youtube.com/watch?v=${compactMovies.youtubeId}`;
+  $_('.movie-youtube', elNewMovie).href = compactMovies.youtubeId;
 
   return elNewMovie;
 };
