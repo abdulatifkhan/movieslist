@@ -1,3 +1,5 @@
+// Correct the names in the Movie array
+
 var compactMovies = movies.map(function (movie, i) {
   return {
     id: i + 1,
@@ -15,10 +17,10 @@ var compactMovies = movies.map(function (movie, i) {
   };
 });
 
+// Announcing the template
+
 var elMoviesList = $_('.movies-list');
 var elMovieTemplate = $_('#movie-template').content;
-
-
 
 var createMovieElement = function (compactMovies) {
   var elNewMovie = elMovieTemplate.cloneNode(true);
@@ -37,6 +39,13 @@ var createMovieElement = function (compactMovies) {
   return elNewMovie;
 };
 
+// Announcing the Form
+
+var elSearchForm = $_('.js-search-form');
+var elSearchInput = $_('.js-search-input');
+
+// Announcing the Fragment
+
 var renderMovies = function (compactMovies) {
   elMoviesList.innerHTML = '';
 
@@ -51,8 +60,7 @@ var renderMovies = function (compactMovies) {
 
 renderMovies(compactMovies.slice(0, 100));
 
-var elSearchForm = $_('.js-search-form');
-var elSearchInput = $_('.js-search-input');
+// Announcing the Form function
 
 var searchMovies = function (evt) {
   evt.preventDefault();
