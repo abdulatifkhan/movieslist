@@ -5,7 +5,8 @@ var compactMovies = movies.map(function (movie, i) {
     year: movie.movie_year,
     categories: movie.Categories.split('|').join(', '),
     summary: movie.summary,
-    imageUrl: `http://i3.ytimg.com/vi/${movie.ytid}/maxresdefault.jpg`,
+    imageUrl: `http://i3.ytimg.com/vi/${movie.ytid}/hqdefault.jpg`,
+    bigImageUrl: `http://i3.ytimg.com/vi/${movie.ytid}/maxresdefault.jpg`,
     imdbId: movie.imdb_id,
     imdbRating: movie.imdb_rating,
     runtime: movie.runtime,
@@ -53,8 +54,9 @@ renderMovies(compactMovies.slice(0, 100));
 var elSearchForm = $_('.js-search-form');
 var elSearchInput = $_('.js-search-input');
 
-elSearchForm.addEventListener('submit', function (evt) {
+var searchMovies = function (evt) {
   evt.preventDefault();
+
   var searchRegexValue = elSearchInput.value.trim();
   var searchRegex = new RegExp(searchRegexValue, 'gi');
 
@@ -63,4 +65,6 @@ elSearchForm.addEventListener('submit', function (evt) {
   });
 
   renderMovies(findMoviesBySearch);
-});
+};
+
+elSearchForm.addEventListener('submit', searchMovies);
