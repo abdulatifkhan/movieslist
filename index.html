@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movies</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body class="bg-light">
+
+  <main class="py-5">
+    <div class="container">
+      <h1 class="mb-4 h2 text-center">Top Movies</h1>
+
+      <form class="my-4 d-flex align-items-center justify-content-center js-search-form" action="https://echo.htmlacademy.ru" method="POST">
+        <div class="form-group d-flex align-items-center justify-content-center">
+          <label class="text-nowrap px-3" for="id-search-movies">Search movies</label>
+          <input class="form-control js-search-input" type="search" id="id-search-movies" autocomplete="off" name="movie" placeholder="Write movies" style="width: 600px;" required>
+        </div>
+
+        <button class="btn btn-primary mb-3 ml-3" type="submit">Search</button>
+      </form>
+
+      <h2 class="sr-only">Top movies list</h2>
+      <ul class="movies-list movies list-unstyled d-flex flex-column align-items-center"></ul>
+    </div>
+  </main>
+
+
+  <!-- TEMPLATES -->
+  <template id="movie-template">
+    <li class="movie__item card border-0 shadow-sm col-md-9 p-3 mb-3">
+      <h3 class="movie-title h5 text-center">Patton Oswalt: Annihilation</h3>
+      <div class="movie-year text-center">2017</div>
+      <div class="movie-categories text-center font-weight-bold text-info">Uncategorized</div>
+      <div class="movie-summary text-center small py-2">Patton Oswald, despite a personal tragedy, produces his best standup yet. Focusing on the tribulations of the Trump era and life after the loss of a loved one, Patton Oswald continues his journey to contribute joy to the world.</div>
+      <div class="movie-imdb-id d-none">tt7026230</div>
+      <div class="movie-imdb-rating text-warning text-center font-weight-bold">7.4</div>
+      <div class="movie-runtime d-none">66</div>
+      <div class="movie-language text-success text-center font-weight-bold">English</div>
+      <div class="movie-youtube d-none">4hZi5QaMBFc</div>
+    </li><!-- movie__item -->
+  </template><!-- movie-template -->
+
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=HTMLTemplateElement%2CArray.prototype.includes"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/movies.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+</html>
