@@ -29,7 +29,7 @@ var createMovieElement = function (compactMovies) {
   $_('.movie-imdb-rating', elNewMovie).textContent = compactMovies.imdbRating;
   $_('.movie-runtime', elNewMovie).textContent = compactMovies.runtime;
   $_('.movie-language', elNewMovie).textContent = compactMovies.language;
-  $_('.movie-youtube', elNewMovie).textContent = compactMovies.youtubeId;
+  $_('.movie-youtube', elNewMovie).href = `https://www.youtube.com/watch?v=${compactMovies.youtubeId}`;
 
   return elNewMovie;
 };
